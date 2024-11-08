@@ -24,6 +24,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           scripts: |
             sudo docker rm -f $(docker ps -aqf "name=^${{secrets.DOCKERHUB_REPO}}") # 컨테이너 찾아서 종료
             sudo docker pull ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO}}:latest
