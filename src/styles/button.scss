@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Button_Container {
+    display: flex;
+    justify-content: center;
+    .Bottom_btn {
+        background-color: #005703;
+        width: 229px;
+        height: 45px;
+        border-radius: 20px;
+        border-style: none;
+        color: white;
+        font-family: GowunBatang-Regular;
+    }
+}
