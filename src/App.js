@@ -1,15 +1,18 @@
-import React from 'react'
-import '../src/styles/app.scss'
-import Main from '../src/pages/Main'
-
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "../src/styles/app.scss";
+import Main from "../src/pages/Main";
+import Write from "./pages/Wrtie";
 
 const App = () => {
   return (
-    <>
-    <Main/>
-    </>
-    
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<Main />} />
+        <Route path="/write" element={<Write />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
