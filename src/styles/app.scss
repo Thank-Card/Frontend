@@ -1,18 +1,10 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('../img/BackgroundColor.jpeg');
-    width: 393px;
-    height: 800px;
-}
-
 .Main_Container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 50px;
-    font-family: GowunBatang-Regular;
+    font-family: "GowunBatang-Regular";
 }
 .Main_Container p {
     margin: 10px;
