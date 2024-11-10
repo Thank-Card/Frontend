@@ -26,7 +26,9 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            sudo docker rm -f $(docker ps -aqf "name=^${{secrets.DOCKERHUB_REPO}}") # 컨테이너 찾아서 종료
+            sudo usermod -aG docker $USER
+            sudo docker stop ${{secrets.DOCKERHUB_REPO}} || true #컨테이너 정지
+            sudo docker rm -f ${{secrets.DOCKERHUB_REPO}} # 컨테이너 찾아서 종료
             sudo docker pull ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO}}:latest
             sudo docker run -d -p 80:80 --name ${{secrets.DOCKERHUB_REPO}} ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO}}:latest
             sudo docker image prune -f
