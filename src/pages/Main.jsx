@@ -16,9 +16,7 @@ const Main = () => {
         </p>
         <p>소중한 사람에게 감사 카드를 전해보세요.</p>
       </div>
-      <Link to={"/write"}>
-        <Button text="마음 전하러 가기" />
-      </Link>
+      <Button text="마음 전하러 가기" nav={"write"}/>
     </>
   );
 };
