@@ -3,6 +3,7 @@
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    padding-bottom: 2.8rem;
 }
 
 * {
@@ -15,8 +16,7 @@
     justify-content: center;
     .Bottom_btn {
         background-color: #005703;
-        width: 22.9rem;
-        height: 4.5rem;
+        padding: 1.1rem 6.2rem;
         border-radius: 2rem;
         border-style: none;
         color: white;
