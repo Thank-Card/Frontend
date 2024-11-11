@@ -10,9 +10,9 @@ const Header = () => {
   };
   return (
       <div className="Header_Container">
-        <img src={Opening} className="Logo" alt="Logo"></img>
+        <img src={Opening} className="Logo" alt="Logo"/>
         <div className="Nav" onClick={toggleList}>
-          <img src={Mail} className="Nav_ico" alt="Mail"></img>
+          <img src={Mail} className="Nav_ico" alt="Mail"/>
         </div>
         {isOpen && (
           <div className="Nav_list">

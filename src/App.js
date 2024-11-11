@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "../src/styles/app.scss";
 import Main from "../src/pages/Main";
 import Write from "./pages/Wrtie";
 
