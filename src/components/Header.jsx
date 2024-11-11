@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../styles/header.scss";
-import Opening from "../assets/img/Opening.svg";
-import Mail from "../assets/img/Mail.svg";
+import "@styles/header.scss";
+import Opening from "@img/Opening.svg";
+import Mail from "@img/Mail.svg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
