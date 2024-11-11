@@ -30,6 +30,8 @@ code {
 }
 
 #commonLayoutContainer {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding-top: var(--layout-padding-top);
   background-image: url("/src/assets/img/BackgroundColor.jpeg");
@@ -55,4 +57,34 @@ code {
 
 #root {
   height: 100%;
+}
+
+@font-face {
+  font-family: 'GownBatang-Bold';
+  src: url('./assets//fonts/GowunBatang-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'GownBatang-Regular';
+  src: url('./assets/fonts/GowunBatang-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'LibreCaslonText-Bold';
+  src: url('./assets/fonts/LibreCaslonText-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'LibreCaslonText-Italic';
+  src: url('./assets/fonts/LibreCaslonText-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'LibreCaslonText-Regular';
+  src: url('./assets/fonts/LibreCaslonText-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'Miama-Regular';
+  src: url('./assets/fonts/Miama-Regular.ttf');
 }

@@ -1,0 +1,49 @@
+#CardMain{
+    align-self: center;
+    width: fit-content;
+    margin-top: 6rem;
+    #Card{
+        width: 32.8rem;
+        margin-bottom: 3.1rem;
+    }
+    #Date{
+        font-family: "GownBatang-Regular";
+        font-size: 1.4rem;
+        line-height: normal;
+    }
+    #Name{
+        font-family: "Miama-Regular";
+        font-size: 1.5rem;
+        line-height: normal;
+    }
+}
+
+#WriteMain{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-bottom: 11.7rem;
+    gap: 3rem;
+    .underline{
+        width: 100%;
+        border-bottom: 1px solid black;
+        line-height: 3rem;
+    }
+    img{
+        width: 1.7rem;
+        object-fit: contain;
+    }
+    #image{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        font-family: "GownBatang-Regular";
+        font-size: 1rem;
+        margin-bottom: 2.2rem;
+    }
+    #From{
+        align-self: flex-end;
+        font-family: "Miama-Regular";
+        font-size: 1.5rem;
+    }
+}
