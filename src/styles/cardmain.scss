@@ -1,9 +1,13 @@
 #CardMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     align-self: center;
-    width: fit-content;
+    width: 32.8rem;
     margin-top: 6rem;
     #Card{
-        width: 32.8rem;
+        width: 100%;
         margin-bottom: 3.1rem;
     }
     #Date{
@@ -21,14 +25,9 @@
 #WriteMain{
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin-top: 5rem;
     margin-bottom: 11.7rem;
-    gap: 3rem;
-    .underline{
-        width: 100%;
-        border-bottom: 1px solid black;
-        line-height: 3rem;
-    }
     img{
         width: 1.7rem;
         object-fit: contain;

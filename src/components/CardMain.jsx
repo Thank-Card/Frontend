@@ -6,8 +6,10 @@ const CardMain = ({ When, PI, Line }) => {
   return (
     <div id="CardMain">
       {When}
-      <img src={card} alt="card" id="Card" />
-      {PI}
+      <div>
+        <img src={card} alt="card" id="Card" />
+        {PI}
+      </div>
       {Line}
     </div>
   );

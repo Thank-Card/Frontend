@@ -2,6 +2,7 @@ import React from "react";
 import Header from "@components/Header";
 import Button from "@components/Button";
 import CardMain from "@components/CardMain";
+import LetterPaper from "@components/LetterPaper";
 import Gallery from "@img/Gallery.svg";
 
 const WriteSub = () => {
@@ -24,18 +25,12 @@ const WriteSub = () => {
 const WriteMain = () => {
   return (
     <div id="WriteMain">
-      {Array(8)
-        .fill(null)
-        .map((_, index) => (
-          <p key={index} className="underline" />
-        ))}
+      <LetterPaper />
       <div id="image">
         <img src={Gallery} alt="Gallery" />
         img 입력
       </div>
-      <div id="From">
-        <span>From Sihyun</span>
-      </div>
+      <div id="From">From Sihyun</div>
     </div>
   );
 };
