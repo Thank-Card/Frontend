@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Button from "../components/Button";
-import "../styles/app.scss";
+import "../styles/main.scss";
 import Heart from "../assets/img/Heart.svg";
 import { Link } from "react-router-dom";
 
