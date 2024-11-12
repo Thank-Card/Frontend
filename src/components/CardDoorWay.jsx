@@ -4,17 +4,12 @@ import "@styles/CardDoorWay.scss";
 import { ImageContext } from "./ImageContext";
 
 const CardDoorWay = () => {
-  
-  const Image = useContext(ImageContext);
-  
-
-  console.log(Image);
+  const Image = useContext(ImageContext).image;
 
   return (
     <div id="CardDoorWay">
       <div>
-      {
-      Image ? (
+        {Image ? (
           <img src={Image} alt="설정한 이미지" id="Photo" />
         ) : (
           <img src={card} alt="card" id="Card" />
