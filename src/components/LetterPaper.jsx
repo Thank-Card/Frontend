@@ -10,7 +10,7 @@ const LetterPaper = () => {
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
-      textarea.style.height = 'auto';
+      textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
   }, [text]);
@@ -19,6 +19,7 @@ const LetterPaper = () => {
     const textarea = textareaRef.current;
     if (textarea) {
       const lineHeight = parseInt(getComputedStyle(textarea).lineHeight);
+      console.log(lineHeight)
       const maxRows = 8;
       const maxHeight = lineHeight * maxRows;
 
@@ -26,18 +27,18 @@ const LetterPaper = () => {
         event.preventDefault();
         alert("편지는 8줄까지 입력 가능합니다.");
         const lines = textarea.value;
-        const length  = lines.length
-        
+        const length = lines.length;
+
         //8줄까지 한정
-        const truncatedText = lines.slice(0, length-2);
+        const truncatedText = lines.slice(0, length - 2);
         // console.log(truncatedText);
         setText(truncatedText);
         textarea.value = text;
-      } else{
+      } else {
         setText(event.target.value);
       }
-      }
     }
+  }
 
   return (
     <div id="letter-paper">
