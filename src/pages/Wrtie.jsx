@@ -2,8 +2,8 @@ import React from "react";
 import Header from "@components/Header";
 import Button from "@components/Button";
 import CardMain from "@components/CardMain";
-import LetterPaper from "@components/LetterPaper";
 import Gallery from "@img/Gallery.svg";
+import LetterPaper from "@components/LetterPaper";
 
 const WriteSub = () => {
   let today = new Date();
@@ -26,11 +26,13 @@ const WriteMain = () => {
   return (
     <div id="WriteMain">
       <LetterPaper />
-      <div id="image">
-        <img src={Gallery} alt="Gallery" />
-        img 입력
+      <div>
+        <div id="image">
+          <img src={Gallery} alt="Gallery" />
+          img 입력
+        </div>
+        <div id="From">From Sihyun</div>
       </div>
-      <div id="From">From Sihyun</div>
     </div>
   );
 };

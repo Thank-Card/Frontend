@@ -1,11 +1,8 @@
 #letter-paper {
   width: 100%; /* 편지지 너비 */
+  height: 24.9rem;
   margin: auto; /* 가운데 정렬 */
-  padding: 10px;
-  input {
-    font-family: "GownBatang-Regular";
-    font-size: 1.6rem;
-  }
+  position: relative;
 }
 
 .letter-line {
@@ -14,9 +11,31 @@
   border-bottom: 1px solid black; /* 밑줄 추가 */
   width: 100%; /* 전체 너비 사용 */
   text-align: center; /* 텍스트 가운데 정렬 */
-  margin: 10px 0px; /* 줄 간격 조정 */
   outline: none; /* 포커스 시 테두리 제거 */
+}
+
+#letter-space {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+#letter-area {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-top: -3.1rem;
+  text-align: center;
+  z-index: 0;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
   font-family: "GownBatang-Regular";
-  font-size: 1.5rem;
-  word-break: break-all;
+  font-size: 1.6rem;
+  line-height: 3.1rem;
+  overflow: hidden;
 }
