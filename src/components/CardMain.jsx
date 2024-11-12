@@ -1,5 +1,5 @@
 import React from "react";
-import card from "@img/Card1.svg";
+import card from "@img/RedSnow.png";
 import "@styles/cardmain.scss";
 
 const CardMain = ({ When, PI, Line }) => {

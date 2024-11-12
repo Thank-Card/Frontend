@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@components/Header";
 import Button from "@components/Button";
 import CardMain from "@components/CardMain";
-import Gallery from "@img/Gallery.svg";
+import Gallery from "@img/Gallery.png";
 import LetterPaper from "@components/LetterPaper";
 
 const WriteSub = () => {

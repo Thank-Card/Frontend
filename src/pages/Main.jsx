@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@components/Header";
 import Button from "@components/Button";
 import "@styles/main.scss";
-import Heart from "@img/Heart.svg";
+import Heart from "@img/Heart.png";
 
 const Main = () => {
   return (
