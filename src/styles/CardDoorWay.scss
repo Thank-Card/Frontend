@@ -1,0 +1,13 @@
+#CardDoorWay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    margin-top: 6rem;
+    #Card{
+        width: 100%;
+        margin-bottom: 3.1rem;
+    }
+}
