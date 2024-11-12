@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import card from "@img/RedSnow.png";
 import "@styles/CardDoorWay.scss";
+import { ImageContext } from "./ImageContext";
 
 const CardDoorWay = () => {
+  
+  const Image = useContext(ImageContext);
+  
 
-  const imageSelector = document.getElementById('image');
-  console.log(imageSelector);
+  console.log(Image);
 
   return (
     <div id="CardDoorWay">
       <div>
-        <img src={card} alt="card" id="Card" />
+      {
+      Image ? (
+          <img src={Image} alt="설정한 이미지" id="Photo" />
+        ) : (
+          <img src={card} alt="card" id="Card" />
+        )}
       </div>
     </div>
   );
