@@ -1,9 +1,40 @@
+#Write {
+  display: flex;
+  flex-direction: column;
+  width: 32.8rem;
+  margin-top: 0rem !important;
+  margin-bottom: 11.7rem !important;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
 
-#Write  {
-    display: flex;
-    flex-direction: column;
-    width: 32.8rem; 
-    margin-top: 0rem !important;
-    margin-bottom: 11.7rem !important;
-    margin: auto;
+button {
+  border: none;
+  outline: none;
+}
+
+button:active,
+button:focus {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#Review {
+  display: flex;
+  flex-direction: column;
+  width: 32.8rem;
+  margin-top: 0rem !important;
+  margin-bottom: 11.7rem !important;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  #image{
+    display: none;
+  }
+}
+
+#Review_Button{
+    margin-top: 3.9rem;
 }

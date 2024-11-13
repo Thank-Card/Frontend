@@ -6,7 +6,7 @@ import PersonalInfo from "@components/PersonalInfo";
 import SelectImage from "@components/SelectImage";
 import CardDoorWay from "@components/CardDoorWay";
 import "@styles/Write.scss";
-import { ImageProvider } from "../components/ImageContext";
+import { ImageProvider } from "@components/ImageContext";
 
 const Write = () => {
   return (
@@ -20,7 +20,7 @@ const Write = () => {
           <SelectImage />
         </ImageProvider>
       </div>
-      <Button text="카드 작성 완료" />
+      <Button text="카드 작성 완료" nav={"review"}/>
     </>
   );
 };

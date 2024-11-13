@@ -1,0 +1,75 @@
+#ModalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(251, 248, 243, 0.2);
+  backdrop-filter: blur(7.5px);
+  z-index: 9;
+}
+
+#LinkModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 35rem;
+  height: 50rem;
+  background-image: url("../assets/img/ModalBackground.png");
+  z-index: 10;
+  #Close{
+    position:absolute;
+    right: 2rem;
+    top: 2rem;
+    z-index: inherit;
+  }
+  #Close:hover{
+    cursor: pointer;
+  }
+  .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  p {
+    font-family: "GowunBatang-Regular";
+    font-size: 1.6rem;
+  }
+
+  #LinkArea {
+    display: flex;
+    align-items: center;
+    width: 81.7%;
+    height: 3.5rem;
+    gap: 1.2rem;
+    margin-top: 5.1rem;
+    img {
+      width: 2.4rem;
+      object-fit: contain;
+      z-index: inherit;
+    }
+    img:hover{
+      cursor: pointer;
+    }
+    #Link {
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+      border: 1px solid #005703;
+      padding: 0 0.5rem;
+      background: rgba(255, 255, 255, 0.7);
+      font-family: "LibreCaslonText-Italic";
+      font-size: 1.2rem;
+    }
+  }
+}
+
+#Link_End {
+  margin-top: 6rem;
+  font-family: "Miama-Regular" !important;
+  font-size: 1.5rem !important;
+}
+
