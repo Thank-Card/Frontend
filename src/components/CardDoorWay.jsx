@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import card from "@img/RedSnow.png";
 import "@styles/CardDoorWay.scss";
 import { ImageContext } from "./ImageContext";
