@@ -7,14 +7,12 @@ import Review from "./pages/CardReview";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="" element={<Main />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/send" element={<SendConfirm />} />
-        <Route path="/review" element={<Review />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="" element={<Main />} />
+      <Route path="/write" element={<Write />} />
+      <Route path="/send" element={<SendConfirm />} />
+      <Route path="/review" element={<Review />} />
+    </Routes>
   );
 };
 

@@ -1,22 +1,35 @@
-import React, { useContext } from "react";
-import Gallery from "@img/Gallery.png";
+import React, { useEffect, useState } from 'react';
+import Gallery from '@img/Gallery.png';
 import "@styles/SelectImage.scss";
-import { ImageContext } from "./ImageContext";
+import { useDispatch, useSelector } from 'react-redux';
+import { changeURL } from '@/redux/store';
 
 const SelectImage = () => {
-  const { setImage } = useContext(ImageContext);
+  
+  const dispatch = useDispatch();
 
-  const handleImageContext = (event) => {
+  const handleImageContext = async (event) => {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       const reader = new FileReader();
-      
-      reader.onload = function (e) {
-        setImage(e.target.result);
-      };
-      
-      reader.readAsDataURL(file);
+
+      try {
+        const result = await readFile(file, reader);
+        dispatch(changeURL(result));
+      } catch (error) {
+        console.error("Error reading file: ", error);
+      }
     }
+  };
+
+  const readFile = (file, reader) => {
+    return new Promise((resolve, reject) => {
+      reader.onload = function (e) {
+        resolve(e.target.result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   };
 
   return (
