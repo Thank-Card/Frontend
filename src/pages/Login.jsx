@@ -11,8 +11,8 @@ const Login = () => {
     const postFetchLogin = async () => {
         try {
             const response = await axios.post('http://3.38.151.193:8080/api/users/login', {
-                loginId : id,
-                password : pw
+                loginId: "string",
+                password: "string"
             });
         }catch(error) {
             console.log(id,pw);

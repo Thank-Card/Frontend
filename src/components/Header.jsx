@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "@styles/header.scss";
 import Opening from "@img/Opening.png";
 import Mail from "@img/Mail.png";
@@ -8,6 +9,11 @@ const Header = () => {
   const toggleList = () => {
     setIsOpen(!isOpen);
   };
+  const navigate = useNavigate();
+  const handleNavigation = (path) => {
+    navigate(path);
+  }
+
   return (
       <div className="Header_Container">
         <img src={Opening} className="Logo" alt="Logo"/>
@@ -17,10 +23,10 @@ const Header = () => {
         {isOpen && (
           <div className="Nav_list">
             <ul className="List_drop">
-              <li>Login</li>
-              <li>Join</li>
-              <li>User Info</li>
-              <li>My Letter Box</li>
+              <li onClick={() => handleNavigation('/login')}>Login</li>
+              <li onClick={() => handleNavigation('/Join')}>Join</li>
+              <li onClick={() => handleNavigation('/')}>User Info</li>
+              <li onClick={() => handleNavigation('/')}>My Letter Box</li>
             </ul>
           </div>
         )}
