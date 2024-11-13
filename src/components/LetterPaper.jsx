@@ -19,7 +19,7 @@ const LetterPaper = () => {
     const textarea = textareaRef.current;
     if (textarea) {
       const lineHeight = parseInt(getComputedStyle(textarea).lineHeight);
-      console.log(lineHeight)
+      //console.log(lineHeight)
       const maxRows = 8;
       const maxHeight = lineHeight * maxRows;
 
@@ -39,6 +39,16 @@ const LetterPaper = () => {
       }
     }
   }
+
+  useEffect(()=>{
+    const letterPaper = document.getElementById('letter-paper');
+    const parentDiv = letterPaper.parentElement;
+    //console.log(parentDiv.id);
+    if(parentDiv.id==='Review'){
+      const letterArea = document.getElementById('letter-area');
+      letterArea.setAttribute('readonly', true);
+    }
+  }, []);
 
   return (
     <div id="letter-paper">

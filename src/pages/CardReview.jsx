@@ -17,7 +17,7 @@ const Review = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-  }
+  } 
 
   return (
     <>
@@ -26,7 +26,7 @@ const Review = () => {
         <ImageProvider>
           <CardDoorWay />
           <PersonalInfo />
-          <LetterPaper />
+          <LetterPaper/>
           <SelectImage />
         </ImageProvider>
         <LinkModal isOpen={isModalOpen} onClose={closeModal}/>
