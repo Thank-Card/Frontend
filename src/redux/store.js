@@ -12,11 +12,24 @@ const imgSlice = createSlice({
     },
 });
 
-export const  {changeURL} = imgSlice.actions;
+const textSlice = createSlice({
+    name: 'text',
+    initialState: " ",
+    reducers: {
+        changeText(state, action){
+            console.log(action.payload);
+            return action.payload;
+        },
+    },
+});
+
+export const {changeURL} = imgSlice.actions;
+export const {changeText} = textSlice.actions;
 
 const store = configureStore({
     reducer:{
         image: imgSlice.reducer,
+        text: textSlice.reducer,
     },
 });
 

@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { changeText } from "@/redux/store";
 import "@styles/LetterPaper.scss";
 
 const LetterPaper = () => {
@@ -6,7 +8,9 @@ const LetterPaper = () => {
   const LetterCount = Array.from({ length: 8 });
   const textareaRef = useRef(null);
   const [text, setText] = useState("");
+  const dispatch = useDispatch();
 
+  //텍스트 높이 계산
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -15,6 +19,7 @@ const LetterPaper = () => {
     }
   }, [text]);
 
+  //입력 줄 수 제한
   function limitRows(event) {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -40,6 +45,7 @@ const LetterPaper = () => {
     }
   }
 
+  //review 페이지 시 입력 불가
   useEffect(()=>{
     const letterPaper = document.getElementById('letter-paper');
     const parentDiv = letterPaper.parentElement;
@@ -49,6 +55,10 @@ const LetterPaper = () => {
       letterArea.setAttribute('readonly', true);
     }
   }, []);
+
+  const updateText = () => {
+    dispatch(changeText(document.getElementById('letter-area').value));
+  }
 
   return (
     <div id="letter-paper">
@@ -62,6 +72,7 @@ const LetterPaper = () => {
         id="letter-area"
         rows="8"
         onKeyUp={limitRows}
+        onBlur={updateText}
       />
     </div>
   );

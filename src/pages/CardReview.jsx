@@ -9,6 +9,7 @@ import LinkModal from "@components/LinkModal";
 
 const Review = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sendData, setSendData] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
