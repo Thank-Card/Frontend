@@ -5,7 +5,6 @@ import PersonalInfo from "@components/PersonalInfo";
 import SelectImage from "@components/SelectImage";
 import CardDoorWay from "@components/CardDoorWay";
 import "@styles/Write.scss";
-import { ImageProvider } from "@components/ImageContext";
 import LinkModal from "@components/LinkModal";
 
 const Review = () => {
@@ -17,19 +16,17 @@ const Review = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-  } 
+  };
 
   return (
     <>
       <Header />
       <div id="Review">
-        <ImageProvider>
-          <CardDoorWay />
-          <PersonalInfo />
-          <LetterPaper/>
-          <SelectImage />
-        </ImageProvider>
-        <LinkModal isOpen={isModalOpen} onClose={closeModal}/>
+        <CardDoorWay />
+        <PersonalInfo />
+        <LetterPaper />
+        <SelectImage />
+        <LinkModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <div className="Button_Container" id="Review_Button">
         <button className="Bottom_btn" type="button" onClick={openModal}>

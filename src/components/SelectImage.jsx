@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Gallery from '@img/Gallery.png';
 import "@styles/SelectImage.scss";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeURL } from '@/redux/store';
 
 const SelectImage = () => {

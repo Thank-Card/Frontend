@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "@styles/LinkModal.scss";
 import Copy from "@img/Copy.png";
 import Close from "@img/Close.png";

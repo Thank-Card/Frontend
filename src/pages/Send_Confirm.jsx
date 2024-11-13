@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "@components/Header";
-import Button from "@components/Button";
 import "@styles/Send_Confirm.scss";
 import Heart from "@img/Heart.png";
 
