@@ -46,7 +46,7 @@ const LetterPaper = () => {
     }
   }
 
-  //review 페이지 시 입력 불가
+  //review 페이지 시 입력 불가, Write에서 작성한 내용 추가
   useEffect(()=>{
     const letterPaper = document.getElementById('letter-paper');
     const parentDiv = letterPaper.parentElement;
