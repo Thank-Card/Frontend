@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeText } from "@/redux/store";
 import "@styles/LetterPaper.scss";
 
@@ -7,7 +7,8 @@ const LetterPaper = () => {
   const LetterLine = () => <div className="letter-line"></div>;
   const LetterCount = Array.from({ length: 8 });
   const textareaRef = useRef(null);
-  const [text, setText] = useState("");
+  const initialText = useSelector((state) => state.text); // Redux에서 초기 text 값 가져오기
+  const [text, setText] = useState(initialText);
   const dispatch = useDispatch();
 
   //텍스트 높이 계산
@@ -52,13 +53,18 @@ const LetterPaper = () => {
     //console.log(parentDiv.id);
     if(parentDiv.id==='Review'){
       const letterArea = document.getElementById('letter-area');
+      letterArea.value = initialText;
       letterArea.setAttribute('readonly', true);
     }
   }, []);
 
+  //textarea 포커스 아웃될 시 텍스트 업데이트
   const updateText = () => {
-    dispatch(changeText(document.getElementById('letter-area').value));
-  }
+    const newText = textareaRef.current.value;
+    setText(newText);
+    dispatch(changeText(newText));
+    document.getElementById('letter-area').value = initialText;
+  };
 
   return (
     <div id="letter-paper">
