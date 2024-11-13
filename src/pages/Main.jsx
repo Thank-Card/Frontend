@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@components/Header";
 import Button from "@components/Button";
+import ImgSlider from '../components/ImgSlider';
 import "@styles/main.scss";
 import Heart from "@img/Heart.png";
 
@@ -16,6 +17,8 @@ const Main = () => {
         <p>소중한 사람에게 감사 카드를 전해보세요.</p>
       </div>
       <Button text="마음 전하러 가기" nav={"write"}/>
+
+      <ImgSlider />
     </>
   );
 };
