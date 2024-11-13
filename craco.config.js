@@ -9,6 +9,7 @@ module.exports = {
       "@fonts": path.resolve(__dirname, "src/assets/fonts/"),
       "@styles": path.resolve(__dirname, "src/styles/"),
       "@pages": path.resolve(__dirname, "src/pages/"),
+      "@api": path.resolve(__dirname, "src/api/"),
     },
   },
 };
