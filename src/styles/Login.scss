@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    padding-bottom: 2.8rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Login_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 15rem;
+    .Id_box {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        width: 38rem;
+        height: 4rem;
+        border-radius: 2rem;
+        border: 0.1rem solid #005703;
+        background: rgba(255, 255, 255, 0.70);
+        .Id {
+            width: 34rem;
+            border-style: none;
+            background: rgba(255, 255, 255, 0.70);
+        }
+    }
+    .Pw_box {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+        width: 38rem;
+        height: 4rem;
+        border-radius: 2rem;
+        border: 0.1rem solid #005703;
+        background: rgba(255, 255, 255, 0.70);
+        .Pw {
+            width: 34rem;
+            border-style: none;
+            background: rgba(255, 255, 255, 0.70);
+        }
+    }
+    input::placeholder {
+        color: #005703;
+    }
+} 
+.Join_box{
+    width: 100%;
+    display: flex;
+    margin-top: 0.8rem;
+    padding-left: 8rem;
+    color: #005703;
+    .Join_btn {
+        margin-left: 0.2rem;
+        font-family: GowunBatang-Regular;
+        font-weight: bold;
+    }
+}   
+.Login_btn_box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    .Login_btn {
+        background-color: #005703;
+        width: 10rem;
+        height: 3.7rem;;
+        border-radius: 2rem;
+        border-style: none;
+        color: white;
+        font-family: GowunBatang-Regular;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
