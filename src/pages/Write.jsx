@@ -6,21 +6,18 @@ import PersonalInfo from "@components/PersonalInfo";
 import SelectImage from "@components/SelectImage";
 import CardDoorWay from "@components/CardDoorWay";
 import "@styles/Write.scss";
-import { ImageProvider } from "../components/ImageContext";
 
 const Write = () => {
   return (
     <>
       <Header />
       <div id="Write">
-        <ImageProvider>
-          <CardDoorWay />
-          <PersonalInfo />
-          <LetterPaper />
-          <SelectImage />
-        </ImageProvider>
+        <CardDoorWay />
+        <PersonalInfo />
+        <LetterPaper />
+        <SelectImage />
       </div>
-      <Button text="카드 작성 완료" />
+      <Button text="카드 작성 완료" nav={"review"} />
     </>
   );
 };

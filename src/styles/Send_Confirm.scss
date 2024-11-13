@@ -1,0 +1,60 @@
+#radius_set{
+    width: 100%;
+    overflow: hidden;
+}
+
+.radius{
+    border-radius: 50%;
+    position: relative;
+}
+
+#radius_0{
+    background-color: #0057030D;
+    width: 22.3rem;
+    height: 22.3rem;
+    margin-top: 1.4rem;
+    margin-left: -9rem
+}
+
+#radius_1{
+    background-color: #00570326;
+    width: 9.2rem;
+    height: 9.2rem;
+    margin-top: -3rem;
+    margin-left: calc(100% - 5rem);
+}
+
+#radius_2{
+    background-color: #0488090D;
+    width: 44.3rem;
+    height: 44.3rem;
+    margin-top: 9.9rem;
+    margin-left: 13.8rem;
+}
+
+#Send_Confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "GowunBatang-Regular";
+    font-size: 2rem;
+    gap: 2rem;
+    img{
+        position: absolute;
+        margin-left: -2rem;
+        margin-top: -1.2rem;
+    }
+    #Send_message{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        margin-top: -2.4rem;
+    }
+    #Send_End{
+        margin-top: 6.9rem;
+        font-family: 'Miama-Regular';
+        font-size: 1.8rem;
+    }
+}
