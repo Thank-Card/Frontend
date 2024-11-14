@@ -1,19 +1,36 @@
-#SelectImage{
-    width: 100%;
+#SelectImage {
+  width: 100%;
+  #Test {
+    visibility: hidden;
+    position: absolute;
+  }
 }
-#image{
-    display: flex;
-    gap: 0.25rem;
-    align-items: center;
-    font-family: "GownBatang-Bold";
-    font-size: 1rem;
-    margin-bottom: 2.2rem;
+#image {
+  display: flex;
+  width: fit-content;
+  gap: 0.25rem;
+  align-items: center;
+  font-family: "GownBatang-Bold";
+  font-size: 1rem;
+  margin-bottom: 2.2rem;
 }
-#From{
-    float: right;
+#From {
+  display: flex;
+  gap: 1rem;
+  min-width: fit-content;
+  max-width: 50%;
+  float: right;
+  font-family: "Miama-Regular";
+  font-size: 1.5rem;
+  input {
     font-family: "Miama-Regular";
     font-size: 1.5rem;
+    min-width: 3rem !important;
+  }
+  input::placeholder {
+    color: black;
+  }
 }
-#file{
-    display: none;
+#file {
+  display: none;
 }

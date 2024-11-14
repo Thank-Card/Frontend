@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeText } from "@/redux/store";
 import "@styles/LetterPaper.scss";
 
 const LetterPaper = () => {
   const LetterLine = () => <div className="letter-line"></div>;
   const LetterCount = Array.from({ length: 8 });
   const textareaRef = useRef(null);
-  const [text, setText] = useState("");
+  const initialText = useSelector((state) => state.text); // Redux에서 초기 text 값 가져오기
+  const [text, setText] = useState(initialText);
+  const dispatch = useDispatch();
 
+  //텍스트 높이 계산
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -15,6 +20,7 @@ const LetterPaper = () => {
     }
   }, [text]);
 
+  //입력 줄 수 제한
   function limitRows(event) {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -40,15 +46,25 @@ const LetterPaper = () => {
     }
   }
 
+  //review 페이지 시 입력 불가, Write에서 작성한 내용 추가
   useEffect(()=>{
     const letterPaper = document.getElementById('letter-paper');
     const parentDiv = letterPaper.parentElement;
     //console.log(parentDiv.id);
     if(parentDiv.id==='Review'){
       const letterArea = document.getElementById('letter-area');
+      letterArea.value = initialText;
       letterArea.setAttribute('readonly', true);
     }
   }, []);
+
+  //textarea 포커스 아웃될 시 텍스트 업데이트
+  const updateText = () => {
+    const newText = textareaRef.current.value;
+    setText(newText);
+    dispatch(changeText(newText));
+    document.getElementById('letter-area').value = initialText;
+  };
 
   return (
     <div id="letter-paper">
@@ -62,6 +78,7 @@ const LetterPaper = () => {
         id="letter-area"
         rows="8"
         onKeyUp={limitRows}
+        onBlur={updateText}
       />
     </div>
   );
