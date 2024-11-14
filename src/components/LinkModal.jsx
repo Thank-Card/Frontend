@@ -4,7 +4,7 @@ import Copy from "@img/Copy.png";
 import Close from "@img/Close.png";
 
 const LinkModal = ({ isOpen, onClose }) => {
-    console.log(isOpen);
+    //console.log(isOpen);
 
     if(!isOpen) return null;
 

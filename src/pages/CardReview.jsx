@@ -44,12 +44,19 @@ const Review = () => {
   }
 
   useEffect(() => {
-    console.log(sendConfirm);
+    // console.log(sendConfirm);
     if (sendConfirm) {
       setImage(Image);
       console.log(getData('api/cards/images/categorys'));
     }
   }, [sendConfirm]);
+
+  const disableInput = () => {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+      input.disable = true;
+    });
+  }
  
   return (
     <>
