@@ -7,7 +7,7 @@ import { changeURL, changeNick } from "@/redux/store";
 const SelectImage = () => {
   const dispatch = useDispatch();
   const widthCalc = useRef();
-  const [nickName, setNickName] = useState("Owner");
+  const [nickName, setNickName] = useState("");
   const userName = useSelector((state) => {
     return state.sendUser;
   });

@@ -1,16 +1,25 @@
-#PersonalInfo{
-    margin-bottom: 4.3rem;
-    float: left;
-    width: 100%;
+#PersonalInfo {
+  margin-bottom: 4.3rem;
+  float: left;
+  width: 100%;
 }
 
-#Date{
-    font-family: "GownBatang-Regular";
-    font-size: 1.4rem;
-    line-height: normal;
+#Date {
+  font-family: "GownBatang-Regular";
+  font-size: 1.4rem;
+  line-height: normal;
 }
-#Name{
+#Name {
+  font-family: "Miama-Regular";
+  font-size: 1.5rem;
+  line-height: normal;
+  input {
     font-family: "Miama-Regular";
     font-size: 1.5rem;
     line-height: normal;
+    margin-left: 1rem;
+  }
+  input::placeholder{
+    color:black;
+  }
 }

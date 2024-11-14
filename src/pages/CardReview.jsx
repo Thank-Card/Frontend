@@ -14,8 +14,15 @@ const Review = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sendData, setSendData] = useState(false);
   const [sendConfirm, setSendConfirm] = useState(false);
-  const [image, setImage] = useState(card);
+  const image = useSelector((state) => state.image);
+  const sendUser = useSelector((state) => state.sendUser);
+  const content = useSelector((state) => state.text);
+  const recvUser = useSelector((state) => state.recvUser);
+  const createAt = useSelector((state) => state.sendDate);
 
+  // console.log(sendUser);
+  // console.log(content);
+  // console.log(image);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -27,59 +34,41 @@ const Review = () => {
 
   const sendMessage = () => {
     setSendData(true);
-  }
+  };
 
-  const Image = useSelector((state) => {
-    return state.image;
-  });
-
-  const getData = async(endpoint) => {
-    try{
-      const response = await api.get(endpoint);
-      return response.data;
-    } catch(error){
-      console.error('Get 요청 오류: ', error);
-      throw error;
-    }
-  }
-
-  useEffect(() => {
-    // console.log(sendConfirm);
-    if (sendConfirm) {
-      setImage(Image);
-      console.log(getData('api/cards/images/categorys'));
-    }
-  }, [sendConfirm]);
-
-  const disableInput = () => {
-    const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => {
-      input.disable = true;
-    });
-  }
- 
   return (
     <>
       <Header />
       <div id="Review">
-        <CardDoorWay sendConfirm={sendData}/>
+        <CardDoorWay sendConfirm={sendData} />
         <PersonalInfo />
         <LetterPaper />
         <SelectImage />
         <LinkModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <div className="Button_Container" id="Review_Button">
-        <button className="Bottom_btn" type="button" onClick={()=>{openModal(); sendMessage();}}>
-          카드 전송하기
-        </button>
+        <form
+          method="post"
+          action="/api/cards/send"
+          encType="multipart/form-data"
+        >
+          <input type="text" name="sendUser" value={sendUser} />
+          <input type="text" name="content" value={content} />
+          <input type="text" name="userImage" value={image} />
+          <input type="text" name="recvUser" value={recvUser} />
+          <input type="text" name="createdAt" value={createAt} />
+          <button
+            className="Bottom_btn"
+            type="submit"
+            onClick={() => {
+              openModal();
+              sendMessage();
+            }}
+          >
+            카드 전송하기
+          </button>
+        </form>
       </div>
-      <form method="post" action="/api/cards/send" encType="multipart/form-data">
-        {/* <input type="text" name="sendUser" value={}/>
-        <input type="text" name="content" value={}/>
-        <input type="text" name="userImage" value={}/>
-        <input type="text" name="recvUser" value={}/>
-        <input type="text" name="createdAt" value={}/> */}
-      </form>
     </>
   );
 };
