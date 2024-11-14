@@ -7,6 +7,7 @@ import Review from "./pages/CardReview";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
 import UserInfo from "./pages/UserInfo";
+import CardSelect from "./pages/CardSelect";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/join" element={<Join />} />
       <Route path="/userinfo" element={<UserInfo />} />
+      <Route path="/cardselect" element={<CardSelect />} />
     </Routes>
   );
 };
