@@ -1,12 +1,13 @@
-import React from 'react';
-import Gallery from '@img/Gallery.png';
+import React, { useEffect, useRef, useState } from "react";
+import Gallery from "@img/Gallery.png";
 import "@styles/SelectImage.scss";
-import { useDispatch } from 'react-redux';
-import { changeURL } from '@/redux/store';
+import { useDispatch } from "react-redux";
+import { changeURL } from "@/redux/store";
 
 const SelectImage = () => {
-  
   const dispatch = useDispatch();
+  const widthCalc = useRef();
+  const [nickName, setNickName] = useState("Owner");
 
   const handleImageContext = async (event) => {
     if (event.target.files.length > 0) {
@@ -32,6 +33,47 @@ const SelectImage = () => {
     });
   };
 
+  const updateNick = () => {
+    const newNick = document.getElementById("nickname").value;
+    setNickName(newNick);
+  };
+
+  const deleteOverflow = () => {
+    const nickField = document.getElementById('nickname');
+    alert("닉네임이 너무 깁니다.");
+    const adjustNick = nickField.value.slice(0, -2);
+    adjustNick.replace(" ","");
+    nickField.value = adjustNick; 
+    setNickName(adjustNick); // 닉네임 업데이트
+  }
+
+  useEffect(() => {
+    // canvas를 사용하여 문자열의 너비 측정
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = "1.5rem Miama-Regular"; // 입력 필드와 동일한 폰트 설정
+
+    const nickWidth = context.measureText(nickName).width;
+    
+    const nickNameBorder = document.getElementById("nickname");
+    const nickWholeBorder = document.getElementById("From");
+
+    // 최대 너비 계산
+    const maxWidth = nickWholeBorder.parentElement.scrollWidth;
+
+    console.log(maxWidth);
+    console.log(nickWidth);
+
+    if (nickWidth > maxWidth/2) {
+      deleteOverflow();
+    } else {
+      nickWholeBorder.style.width = `${(nickWidth + 25) / 10 + 4}rem`;
+      nickNameBorder.style.width = `${nickWidth/10}rem`;
+      //console.log(nickNameBorder.style.width);
+    }
+    
+  }, [nickName]);
+
   return (
     <div id="SelectImage">
       <label htmlFor="file" id="image">
@@ -45,7 +87,18 @@ const SelectImage = () => {
         accept="image/*"
         onChange={handleImageContext}
       />
-      <div id="From">From Sihyun</div>
+      <div id="From">
+        <span style={{ float: "left" }}>From </span>
+        <input
+          type="text"
+          placeholder="Owner"
+          id="nickname"
+          onChange={updateNick}
+        />
+      </div>
+      <span ref={widthCalc} id="Test">
+        {nickName}
+      </span>
     </div>
   );
 };

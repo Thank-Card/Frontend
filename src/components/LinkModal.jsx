@@ -4,6 +4,7 @@ import Copy from "@img/Copy.png";
 import Close from "@img/Close.png";
 
 const LinkModal = ({ isOpen, onClose }) => {
+    console.log(isOpen);
 
     if(!isOpen) return null;
 
@@ -25,7 +26,7 @@ const LinkModal = ({ isOpen, onClose }) => {
         <p id="Link_End">From Opening</p>
         <div id="LinkArea">
           <img src={Copy} alt="copy" id="Copy" />
-          <input id="Link" type="text" />
+          <div id="Link" type="text" />
         </div>
       </div>
     </>

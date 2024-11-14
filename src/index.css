@@ -59,6 +59,17 @@ code {
   height: 100%;
 }
 
+input{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+input:focus{
+  cursor: pointer;
+  border: none;
+}
+
 @font-face {
   font-family: 'GownBatang-Bold';
   src: url('./assets//fonts/GowunBatang-Bold.ttf');

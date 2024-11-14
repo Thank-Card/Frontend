@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import card from "@img/RedSnow.png";
 import "@styles/CardDoorWay.scss";
 
 const CardDoorWay = () => {
+
   const Image = useSelector((state) => {
-    //console.log(state);
     return state.image;
   });
 
