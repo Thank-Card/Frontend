@@ -12,25 +12,25 @@ const Header = () => {
   const navigate = useNavigate();
   const handleNavigation = (path) => {
     navigate(path);
-  }
+  };
 
   return (
-      <div className="Header_Container">
-        <img src={Opening} className="Logo" alt="Logo"/>
-        <div className="Nav" onClick={toggleList}>
-          <img src={Mail} className="Nav_ico" alt="Mail"/>
-        </div>
-        {isOpen && (
-          <div className="Nav_list">
-            <ul className="List_drop">
-              <li onClick={() => handleNavigation('/login')}>Login</li>
-              <li onClick={() => handleNavigation('/Join')}>Join</li>
-              <li onClick={() => handleNavigation('/')}>User Info</li>
-              <li onClick={() => handleNavigation('/')}>My Letter Box</li>
-            </ul>
-          </div>
-        )}
+    <div className="Header_Container">
+      <img src={Opening} className="Logo" alt="Logo" />
+      <div className="Nav" onClick={toggleList}>
+        <img src={Mail} className="Nav_ico" alt="Mail" />
       </div>
+      {isOpen && (
+        <div className="Nav_list">
+          <ul className="List_drop">
+            <li onClick={() => handleNavigation("/login")}>Login</li>
+            <li onClick={() => handleNavigation("/Join")}>Join</li>
+            <li onClick={() => handleNavigation("/UserInfo")}>User Info</li>
+            <li onClick={() => handleNavigation("/")}>My Letter Box</li>
+          </ul>
+        </div>
+      )}
+    </div>
   );
 };
 
