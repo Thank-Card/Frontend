@@ -3,29 +3,49 @@ import { useNavigate } from "react-router-dom";
 import Piggy from "@img/Piggy.png";
 import RedSnow from "@img/RedSnow.png";
 import SnowMan from "@img/SnowMan.png";
+import YearEnd from "@img/YearEnd.png";
+import Tree from "@img/Tree.png";
+import ThankCard from "@img/ThankCard.png";
+import Star from "@img/SnowMan.png";
+import Present from "@img/Present.png";
 import LeftSlider from "../assets/img/LeftSlider.svg";
 import RightSlider from "../assets/img/RightSlider.svg";
 import "@styles/ImgSlider.scss";
 
-const images = [Piggy, RedSnow, SnowMan];
+const images1 = [RedSnow, Tree, SnowMan];
+const images2 = [Piggy, YearEnd, ThankCard];
+const images3 = [Present, Star];
 
-const ImgSlider = ({ text }) => {
+const images = [images1, images2, images3];
+const texts = [
+  ["크리스마스 카드🎄", "크리스마스 카드🎄", "크리스마스 카드🎄"],
+  ["연말 카드🎴", "연말 카드🎴", "연말 카드🎴"],
+  ["지금 인기있는 카드✨", "지금 인기있는 카드✨"]
+];
+
+const ImgSlider = ({ id }) => {
   const navigate = useNavigate();
+  const initialIndex = parseInt(id) - 1;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImages, setCurrentImages] = useState(images[initialIndex]);
+  const [currentTexts, setCurrentTexts] = useState(texts[initialIndex]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % currentImages.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + currentImages.length) % currentImages.length);
   };
 
   const handleImageClick = () => {
-    // 선택한 이미지를 CardSelect로 전달
-    navigate("/CardSelect", { state: { selectedImage: images[currentIndex] } });
+    navigate("/CardSelect", { state: { selectedImage: currentImages[currentIndex] } });
+  };
+
+  const handleImageSetChange = (index) => {
+    setCurrentIndex(0);
+    setCurrentImages(images[index]);
+    setCurrentTexts(texts[index]); 
   };
 
   return (
@@ -34,15 +54,25 @@ const ImgSlider = ({ text }) => {
         <button onClick={prevSlide}>
           <img src={LeftSlider} alt="Previous Slide" />
         </button>
-        <img
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          onClick={handleImageClick}
-          style={{ cursor: "pointer" }}
-        />
+        <div>
+          <div className="CardTitle">{currentTexts[currentIndex]}</div> 
+          <img
+            src={currentImages[currentIndex]}
+            alt={`Slide ${currentIndex + 1}`}
+            onClick={handleImageClick}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
         <button onClick={nextSlide}>
           <img src={RightSlider} alt="Next Slide" />
         </button>
+      </div>
+
+      <div className="ImageSetSelector">
+        {images.map((_, index) => (
+          <button key={index} onClick={() => handleImageSetChange(index)}>
+          </button>
+        ))}
       </div>
     </div>
   );

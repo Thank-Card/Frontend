@@ -28,7 +28,9 @@
         .Id {
             width: 34rem;
             border-style: none;
-            background: rgba(255, 255, 255, 0.70);
+            background-color: transparent;
+            font-family: "GowunBatang-Regular";
+            font-weight: bold;
         }
     }
     .Pw_box {
@@ -43,7 +45,9 @@
         .Pw {
             width: 34rem;
             border-style: none;
-            background: rgba(255, 255, 255, 0.70);
+            background-color: transparent;
+            font-family: "GowunBatang-Regular";
+            font-weight: bold;
         }
     }
     input::placeholder {
@@ -56,6 +60,7 @@
     margin-top: 0.8rem;
     padding-left: 8rem;
     color: #005703;
+    cursor: pointer;
     .Join_btn {
         margin-left: 0.2rem;
         font-family: GowunBatang-Regular;
@@ -77,5 +82,6 @@
         font-family: GowunBatang-Regular;
         font-size: 1.5rem;
         font-weight: bold;
+        cursor: pointer;
     }
 }

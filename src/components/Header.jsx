@@ -9,14 +9,21 @@ const Header = () => {
   const toggleList = () => {
     setIsOpen(!isOpen);
   };
+  
   const navigate = useNavigate();
+  
   const handleNavigation = (path) => {
     navigate(path);
   };
 
   return (
     <div className="Header_Container">
-      <img src={Opening} className="Logo" alt="Logo" />
+      <img 
+        src={Opening} 
+        className="Logo" 
+        alt="Logo" 
+        onClick={() => handleNavigation("/")} 
+      />
       <div className="Nav" onClick={toggleList}>
         <img src={Mail} className="Nav_ico" alt="Mail" />
       </div>

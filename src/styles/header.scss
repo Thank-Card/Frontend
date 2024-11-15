@@ -15,10 +15,12 @@
     .Logo {
         height: 5.3rem;
         object-fit: contain;
+        cursor: pointer;
     }
     .Nav {
         position: absolute;
         right: 10%;
+        cursor: pointer;
     
         .Nav_ico {
             width: 3rem;
@@ -27,20 +29,24 @@
     }
     .Nav_list {
         width: 100%;
-        height: 25.9rem;
+        height: 35rem;
         position: absolute;
         margin-top: 7.5rem;
         background-image: url('../assets/img/NavBackground.png');
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
         .List_drop {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 4rem;
             list-style: none;
             color: #005703;
-            padding: 4.8rem;
+            padding: 6rem;
             font-size: 1.8rem;
             font-family: "LibreCaslonText-Regular";
             font-weight: bold;
+        }
+        .List_drop li {
+            cursor: pointer;
         }
     }
 }

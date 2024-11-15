@@ -27,7 +27,9 @@
             .Id, .Name, .Pw, .Pwc {
                 width: 34rem;
                 border-style: none;
-                background: rgba(255, 255, 255, 0.70);
+                background-color: transparent;
+                font-family: 'GowunBatang-Regular';
+                font-weight: bold;
             }
             input::placeholder {
                 color: #005703;
@@ -49,9 +51,10 @@
             border-radius: 2rem;
             border-style: none;
             color: white;
-            font-family: GowunBatang-Regular;
+            font-family: "GowunBatang-Regular";
             font-size: 1.5rem;
             font-weight: bold;
+            cursor: pointer;
         }
     }
 }
