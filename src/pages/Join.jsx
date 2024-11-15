@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Join.scss'
 import Header from '../components/Header';
 import api from '@/api/axios';
+import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
   const [id, setId] = useState("");
@@ -9,6 +10,7 @@ const Join = () => {
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   const [isJoinDisabled, setIsJoinDisabled] = useState(true);
+  const navigate = useNavigate();
   
   const handleIdChange = (e) => {setId(e.target.value)};
   const handleNameChange = (e) => {setName(e.target.value)};
@@ -39,11 +41,17 @@ const Join = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log(response);
+      // console.log(response);
+      if(response.status === 200 || response.status === 201){
+        alert('회원가입이 성공적으로 진행되었습니다.');
+        navigate('/login');
+      }
       return response.data;
     } catch (error) {
       console.error("API 요청 오류:", error.response.data);
-    }
+      if(error.response.data === "User already exist")
+        alert("이미 존재하는 회원입니다.");
+    }    
   }
 
   return (
