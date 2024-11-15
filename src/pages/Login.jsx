@@ -4,10 +4,12 @@ import "../styles/Login.scss";
 import Header from "../components/Header";
 import Heart1 from "../assets/img/Heart1.png";
 import { setCookie } from "@/api/Cookies";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+  const navigate = useNavigate();
 
   const postFetchLogin = async (event) => {
     event.preventDefault(); // 기본 폼 제출 동작 방지
@@ -28,6 +30,7 @@ const Login = () => {
         });
       }
       console.log("로그인 성공:", response);
+      navigate('/');
     } catch (error) {
       console.error("API 호출 에러", error.response ? error.response.data : error.message);
     }
