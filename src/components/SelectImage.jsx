@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Gallery from "@img/Gallery.png";
 import "@styles/SelectImage.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { changeURL, changeNick } from "@/redux/store";
+import { changeURL, changeSendUser } from "@/redux/store";
 
 const SelectImage = () => {
   const dispatch = useDispatch();
@@ -39,6 +39,8 @@ const SelectImage = () => {
   const updateNick = () => {
     const newNick = document.getElementById("nickname").value;
     setNickName(newNick);
+    const finalNick = document.getElementById("nickname").value;
+    dispatch(changeSendUser(finalNick));
   };
 
   const deleteOverflow = () => {
@@ -76,17 +78,14 @@ const SelectImage = () => {
       }rem`;
       //console.log(nickNameBorder.style.width);
     }
-
-    const finalNick = document.getElementById("nickname").value;
-    dispatch(changeNick(finalNick));
   }, [nickName]);
 
   const disableInput = () => {
     const parentDiv = document.getElementById("SelectImage").parentElement;
-    console.log(parentDiv.id);
+    //console.log(parentDiv.id);
     if (parentDiv.id === "Review") {
       const inputs = document.getElementById("nickname");
-      inputs.setAttribute('disabled', true);
+      inputs.setAttribute("disabled", true);
     }
   };
 

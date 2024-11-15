@@ -6,7 +6,7 @@ const imgSlice = createSlice({
   initialState: { defaultImg }.defaultImg,
   reducers: {
     changeURL(state, action) {
-      //console.log(action.payload);
+      // console.log(action.payload);
       return action.payload;
     },
   },
@@ -17,7 +17,7 @@ const textSlice = createSlice({
   initialState: " ",
   reducers: {
     changeText(state, action) {
-      //   console.log(action.payload);
+      //console.log(action.payload);
       return action.payload;
     },
   },
@@ -25,10 +25,10 @@ const textSlice = createSlice({
 
 const nickSlice = createSlice({
   name: "sendUser",
-  initialState: "",
+  initialState: "Owner",
   reducers: {
-    changeNick(state, action) {
-      //console.log(action.payload);
+    changeSendUser(state, action) {
+      // console.log(action.payload);
       return action.payload;
     },
   },
@@ -36,10 +36,10 @@ const nickSlice = createSlice({
 
 const dateSlice = createSlice({
   name: "sendDate",
-  initialState: "Unknown",
+  initialState: null,
   reducers: {
     changeDate(state, action) {
-      //console.log(action.payload);
+      // console.log(action.payload);
       return action.payload;
     },
   },
@@ -58,7 +58,7 @@ const recvSlice = createSlice({
 
 export const { changeURL } = imgSlice.actions;
 export const { changeText } = textSlice.actions;
-export const { changeNick } = nickSlice.actions;
+export const { changeSendUser } = nickSlice.actions;
 export const { changeDate } = dateSlice.actions;
 export const { changeRecv } = recvSlice.actions;
 

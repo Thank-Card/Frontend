@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import UserInfo from "./pages/UserInfo";
 import CardSelect from "./pages/CardSelect";
+// import CardReviewFromLink from "./pages/CardReivewFromLink";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/join" element={<Join />} />
       <Route path="/userinfo" element={<UserInfo />} />
       <Route path="/cardselect" element={<CardSelect />} />
+      {/* <Route path="/cardreviewLink" element={<CardReviewFromLink />} /> */}
     </Routes>
   );
 };

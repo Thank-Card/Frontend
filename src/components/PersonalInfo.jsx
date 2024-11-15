@@ -9,29 +9,33 @@ const PersonalInfo = () => {
 
   //console.log(today.getMonth());
 
-  let year = today.getFullYear(); //년도
-  let month = today.getMonth() + 1; //월
-  let date = today.getDate(); //날짜
-
-  dispatch(changeDate(`${year}/${month}/${date}`));
-
   const recvUser = useSelector((state) => {
     return state.recvUser;
   });
+
+  const sendDate = useSelector((state) => {
+    return state.date;
+  })
 
   const updateRecv = (e) => {
     dispatch(changeRecv(e.target.value));
   };
 
-  useEffect(()=>{
-    if(document.getElementById('PersonalInfo').parentElement.id==="Review")
+  useEffect(() => {
+    const year = today.getFullYear(); //년도
+    const month = today.getMonth() + 1; //월
+    const date = today.getDate(); //날짜
+
+    dispatch(changeDate(`${year}/${month}/${date}`));
+
+    if (document.getElementById("PersonalInfo").parentElement.id === "Review")
       document.querySelector("#Name input").setAttribute("disabled", true);
-  },[])
+  }, []);
 
   return (
     <div id="PersonalInfo">
       <p id="Date">
-        {year}/{month}/{date}
+        {sendDate}
       </p>
       <div id="Name">
         Dear

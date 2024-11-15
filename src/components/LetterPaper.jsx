@@ -63,7 +63,8 @@ const LetterPaper = () => {
     const newText = textareaRef.current.value;
     setText(newText);
     dispatch(changeText(newText));
-    document.getElementById('letter-area').value = initialText;
+    // console.log(initialText);
+    document.getElementById('letter-area').value = text;
   };
 
   return (

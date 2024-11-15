@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import api from "@/api/axios";
 import Header from "@components/Header";
 import LetterPaper from "@components/LetterPaper";
@@ -11,16 +9,9 @@ import "@styles/Write.scss";
 import LinkModal from "@components/LinkModal";
 import card from "@img/RedSnow.png";
 
-const Review = () => {
-  const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sendData, setSendData] = useState(false);
-  const image = useSelector((state) => state.image);
-  const from = useSelector((state) => state.sendUser);
-  const content = useSelector((state) => state.text);
-  const dear = useSelector((state) => state.recvUser);
-
+const CardReviewFromLink = () => {
   useEffect(() => {
+    // 컴포넌트 마운트 시 토큰 확인
     const token = localStorage.getItem("jwtToken");
     // console.log(localStorage);
     if (!token) {
@@ -28,40 +19,8 @@ const Review = () => {
     }
   }, [navigate]);
 
-  const cardImageId = 2;
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const sendMessage = async (event) => {
+  const getCard = async (event) => {
     event.preventDefault();
-    setSendData(true);
-
-    const formData = new FormData();
-
-    const cardData = {
-      content,
-      cardImageId,
-      from,
-      dear,
-    };
-
-    // console.log(cardData);
-
-    //이미지 데이터 추가
-    formData.append(
-      "card",
-      new Blob([JSON.stringify(cardData)], { type: "application/json" })
-    );
-    formData.append("image", image);
-
-    // console.log(formData.keys(0));
-    // console.log(formData.values(0));
 
     try {
       const response = await api.post("/api/cards/send", formData, {
@@ -88,14 +47,14 @@ const Review = () => {
     <>
       <Header />
       <div id="Review">
-        <CardDoorWay sendConfirm={sendData} />
+        <CardDoorWay />
         <PersonalInfo />
         <LetterPaper />
         <SelectImage />
         <LinkModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <div className="Button_Container" id="Review_Button">
-        <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage}>
           <button className="Bottom_btn" type="submit">
             카드 전송하기
           </button>
@@ -105,4 +64,4 @@ const Review = () => {
   );
 };
 
-export default Review;
+export default CardReviewFromLink;
