@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom"; 
 import Header from "../components/Header";
 import Button from "@components/Button";
 import api from '@/api/axios';
@@ -7,6 +7,7 @@ import styles from "../styles/CardSelect.module.scss"; // 파일 이름 확인
 
 const CardSelectReview = () => {
   const location = useLocation();
+  const navigate = useNavigate(); // useNavigate 훅 사용
   const selectedImage = location.state?.selectedImage; // 전달받은 이미지
   const cardId = location.state?.cardId; // 전달받은 카드 ID
   const [cardData, setCardData] = useState(null); // 카드 데이터를 저장할 상태
@@ -29,6 +30,11 @@ const CardSelectReview = () => {
       fetchCardData();
     }
   }, [cardId]); // cardId가 변경될 때마다 호출
+
+  // 카드 읽기 버튼 클릭 시 상세보기 페이지로 이동
+  const handleButtonClick = () => {
+    navigate('/cardreview'); // 카드 상세보기 페이지로 이동
+  };
 
   return (
     <>
@@ -58,7 +64,8 @@ const CardSelectReview = () => {
         )}
 
         <div className={styles.SelectButton}>
-          <Button text="카드 읽기" nav={"write"} />
+          {/* Button 컴포넌트에 클릭 핸들러 추가 */}
+          <Button text="카드 읽기" onClick={handleButtonClick} />
         </div>
       </div>
     </>
