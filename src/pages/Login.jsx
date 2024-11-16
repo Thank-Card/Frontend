@@ -12,7 +12,6 @@ const Login = () => {
 
   const postFetchLogin = async (event) => {
     event.preventDefault(); // 기본 폼 제출 동작 방지
-    //console.log("Try Login");
     try {
       const response = await axios.post(
         "/api/users/login",
@@ -25,7 +24,7 @@ const Login = () => {
         localStorage.setItem("Token", response.headers.getAuthorization());
       }
       console.log("로그인 성공:", response);
-      navigate("/");
+      navigate("/"); // 로그인 성공 시 메인 페이지로 이동
       window.location.reload(); // 페이지 강제 새로고침
     } catch (error) {
       console.error(
@@ -33,6 +32,10 @@ const Login = () => {
         error.response ? error.response.data : error.message
       );
     }
+  };
+
+  const handleJoinClick = () => {
+    navigate("/join"); // Join 페이지로 이동
   };
 
   return (
@@ -58,7 +61,7 @@ const Login = () => {
           />
         </div>
       </div>
-      <div className="Join_box">
+      <div className="Join_box" onClick={handleJoinClick}>
         <img src={Heart1} alt="Heart" />
         <div className="Join_btn">join</div>
       </div>

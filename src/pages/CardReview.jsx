@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api, { getToken } from "@/api/axios";
 import Header from "@components/Header";
@@ -10,15 +10,18 @@ import CardDoorWay from "@components/CardDoorWay";
 import "@styles/Write.scss";
 import LinkModal from "@components/LinkModal";
 import card from "@img/RedSnow.png";
+import { changeLetter } from "@/redux/store";
 
 const Review = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sendData, setSendData] = useState(false);
+  const [letterLink, setLetterLink] = useState("");
   const image = useSelector((state) => state.image);
   const from = useSelector((state) => state.sendUser);
   const content = useSelector((state) => state.text);
   const dear = useSelector((state) => state.recvUser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!getToken()) {
@@ -68,7 +71,9 @@ const Review = () => {
         },
       });
       if (response.data.success) {
-        console.log("카드 전송 성공:", response.data);
+        console.log("카드 전송 성공:", response.data.data.id);
+        setLetterLink(response.data.data.id);
+        //dispatch(changeLetter(response.data.data.id));
         openModal();
       } else {
         console.error("카드 전송 실패:", response.data.message);
@@ -90,7 +95,7 @@ const Review = () => {
         <PersonalInfo />
         <LetterPaper />
         <SelectImage />
-        <LinkModal isOpen={isModalOpen} onClose={closeModal} />
+        <LinkModal isOpen={isModalOpen} onClose={closeModal} sendLink={letterLink}/>
       </div>
       <div className="Button_Container" id="Review_Button">
         <form onSubmit={sendMessage}>

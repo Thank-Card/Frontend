@@ -21,14 +21,13 @@
 
     .SliderBtn {
       display: flex;
-      align-items: center;
       justify-content: center;
       border-style: none;
       background-color: transparent;
       cursor: pointer;
       width: 2.5rem;
       height: 2.5rem;
-      margin: 0 0.5rem; // 좌우 간격
+      margin-top: 5rem;
     }
 
     .CardViewBox {

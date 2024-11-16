@@ -10,7 +10,6 @@ import UserInfo from "./pages/UserInfo";
 import CardSelect from "./pages/CardSelect";
 import MyLetterBox from "./pages/MyLetterBox";
 import CardSelectReview from "./pages/CardSelectReview";
-import CardReview from './pages/CardReview';
 // import CardReviewFromLink from "./pages/CardReivewFromLink";
 
 const App = () => {
@@ -26,7 +25,6 @@ const App = () => {
       <Route path="/cardselect" element={<CardSelect />} />
       <Route path="/letterbox" element={<MyLetterBox/>}/>
       <Route path="/cardselectreview/:year" element={<CardSelectReview/>}/>
-      <Route path="/cardreview" element={<CardReview/>} />
       {/* <Route path="/cardreviewLink" element={<CardReviewFromLink />} /> */}
     </Routes>
   );

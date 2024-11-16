@@ -56,11 +56,22 @@ const recvSlice = createSlice({
   },
 });
 
+const letterSlice = createSlice({
+  name: "letterURL",
+  initialState: " ",
+  reducers: {
+    changeLetter(state, action) {
+      return action.payload;
+    },
+  },
+});
+
 export const { changeURL } = imgSlice.actions;
 export const { changeText } = textSlice.actions;
 export const { changeSendUser } = nickSlice.actions;
 export const { changeDate } = dateSlice.actions;
 export const { changeRecv } = recvSlice.actions;
+export const { changeLetter } = letterSlice.actions;
 
 const store = configureStore({
   reducer: {
@@ -69,6 +80,7 @@ const store = configureStore({
     sendUser: nickSlice.reducer,
     date: dateSlice.reducer,
     recvUser: recvSlice.reducer,
+    letter: letterSlice.reducer,
   },
 });
 

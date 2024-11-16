@@ -38,3 +38,14 @@ button:focus {
 #Review_Button {
   margin-top: 3.9rem;
 }
+
+#Link{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: scroll;
+}
+
+#Link::-webkit-scrollbar{
+  display: none;
+}
