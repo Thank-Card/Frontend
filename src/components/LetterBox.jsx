@@ -17,7 +17,7 @@ const ImgSlider = () => {
   const fetchCardData = async(year) => {
     try {
       const response = await api.get(`/api/cards/year/${year}`); // 현재 연도로 API 호출
-      const data = response;
+      const data = response.data;
       
       console.log(response);
       

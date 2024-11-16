@@ -3,24 +3,26 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "@components/Button";
 import api from '@/api/axios';
-import styles from "../styles/CardSelect.module.scss"; // 파일 이름 확인
+import styles from "../styles/CardSelect.module.scss"; 
 
 const CardSelectReview = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // useNavigate 훅 사용
-  const selectedImage = location.state?.selectedImage; // 전달받은 이미지
-  const cardId = location.state?.cardId; // 전달받은 카드 ID
-  const [cardData, setCardData] = useState(null); // 카드 데이터를 저장할 상태
+  const navigate = useNavigate(); 
+  const selectedImage = location.state?.selectedImage; 
+  const cardId = location.state?.cardId; 
+  const [cardData, setCardData] = useState(null); 
 
   useEffect(() => {
-    const fetchCardData = async () => {
+    const fetchCardData = async (cardId) => {
       try {
         const response = await api.get(`/api/cards/${cardId}/simple`);
-        const data = response;
-        if (response.data.success) {
-          setCardData(response.data.data); // 카드 데이터 설정
+        const data = response.data; 
+        console.log(data); 
+
+        if (data.success) { 
+          setCardData(data.data); 
         } else {
-          console.error("카드 조회 실패:", response.data.message);
+          console.error("카드 조회 실패:", data.message); 
         }
       } catch (error) {
         console.error("API 호출 에러:", error);
@@ -28,7 +30,7 @@ const CardSelectReview = () => {
     };
 
     if (cardId) {
-      fetchCardData();
+      fetchCardData(cardId); // cardId를 전달
     }
   }, [cardId]); // cardId가 변경될 때마다 호출
 
