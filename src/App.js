@@ -24,7 +24,7 @@ const App = () => {
       <Route path="/userinfo" element={<UserInfo />} />
       <Route path="/cardselect" element={<CardSelect />} />
       <Route path="/letterbox" element={<MyLetterBox/>}/>
-      <Route path="/cardselectreview" element={<CardSelectReview/>}/>
+      <Route path="/cardselectreview/:year" element={<CardSelectReview/>}/>
       {/* <Route path="/cardreviewLink" element={<CardReviewFromLink />} /> */}
     </Routes>
   );
