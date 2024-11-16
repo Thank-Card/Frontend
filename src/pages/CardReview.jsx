@@ -21,9 +21,7 @@ const Review = () => {
   const dear = useSelector((state) => state.recvUser);
 
   useEffect(() => {
-    const token = getToken();
-    // console.log(localStorage);
-    if (!token) {
+    if (!getToken()) {
       navigate("/login"); // 토큰이 없으면 로그인 페이지로 리다이렉트
     }
   }, [navigate]);
