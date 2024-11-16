@@ -76,16 +76,6 @@ const ImgSlider = ({ id }) => {
           <img src={RightSlider} alt="Next Slide" />
         </button>
       </div>
-
-      <div className="ImageSetSelector">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleImageSetChange(index)}
-            className={currentImages === images[index] ? "active" : ""}
-          ></button>
-        ))}
-      </div>
     </div>
   );
 };
