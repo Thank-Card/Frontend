@@ -14,6 +14,7 @@ const UserInfo = () => {
         const response = await api.get("/api/users/user-info", {
           withCredentials: true,
         });
+        console.log(response.data.status);
         const { loginId, name } = response.data;
         setUserInfo({ loginId, name });
       } catch (error) {
