@@ -22,13 +22,16 @@ const Login = () => {
         }
       );
       if (response.headers.getAuthorization()) {
-        console.log("token 저장");
+        console.log("token 저장: ", response.headers.getAuthorization());
         localStorage.setItem("Token", response.headers.getAuthorization());
       }
       console.log("로그인 성공:", response);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error("API 호출 에러", error.response ? error.response.data : error.message);
+      console.error(
+        "API 호출 에러",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
