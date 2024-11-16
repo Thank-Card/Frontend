@@ -26,7 +26,7 @@ const LinkModal = ({ isOpen, onClose, sendLink }) => {
         <p id="Link_End">From Opening</p>
         <div id="LinkArea">
           <img src={Copy} alt="copy" id="Copy" />
-          <div id="Link">http://www.thankfulnote.com/Letter/{sendLink}</div>
+          <div id="Link">http://www.thankfulnote.com/card/{sendLink}</div>
         </div>
       </div>
     </>
