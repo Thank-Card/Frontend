@@ -16,6 +16,7 @@ const CardSelectReview = () => {
     const fetchCardData = async () => {
       try {
         const response = await api.get(`/api/cards/${cardId}/simple`);
+        const data = response;
         if (response.data.success) {
           setCardData(response.data.data); // 카드 데이터 설정
         } else {

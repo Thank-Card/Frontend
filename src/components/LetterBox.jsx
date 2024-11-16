@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LeftSlider from "../assets/img/LeftSlider.svg";
 import RightSlider from "../assets/img/RightSlider.svg";
-import api from 'axios'
+import api from '@/api/axios';
 import "@styles/LetterBox.scss";
 
 const ImgSlider = () => {
@@ -14,10 +14,12 @@ const ImgSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 카드 데이터 API 호출
-  const fetchCardData = async (year) => {
+  const fetchCardData = async(year) => {
     try {
       const response = await api.get(`/api/cards/year/${year}`); // 현재 연도로 API 호출
-      const data = await response.json();
+      const data = response;
+      
+      console.log(response);
       
       if (data.success) {
         // 연도별 카드 데이터를 설정
@@ -59,7 +61,6 @@ const ImgSlider = () => {
 
   return (
     <div className="Img_Container">
-      
       <div className="Slider_boxs">
         <div className="SliderBox1">
             <button onClick={prevSlide}>
@@ -78,7 +79,6 @@ const ImgSlider = () => {
             <img src={RightSlider} alt="Next Slide" />
             </button>
         </div>
-        
       </div>
     </div>
   );
