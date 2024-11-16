@@ -7,12 +7,14 @@ import styles from "../styles/CardSelect.module.scss";
 const CardSelect = () => {
   const location = useLocation();
   const selectedImage = location.state?.selectedImage; // 전달받은 이미지
+  const selectedText = location.state?.CardText; // 전달받은 텍스트
 
   return (
     <>
       <Header />
       <div className={styles.Select}>
-        <div className={styles.CardText}>크리스마스 카드🎄</div>
+        <div className={styles.CardText}>{selectedText || "선택된 카드"}</div>{" "}
+        {/* 텍스트 표시 */}
         {selectedImage ? (
           <img
             src={selectedImage}
