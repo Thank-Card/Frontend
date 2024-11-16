@@ -5,7 +5,6 @@ import Heart from "@img/Heart.png";
 import LetterBox from '@components/LetterBox'
 import api from '@/api/axios';
 import { useNavigate } from 'react-router-dom';
-import { Cookies } from 'react-cookie';
 
 const MyLetterBox = () => {
   const [sendCount, setSendCount] = useState(0);
@@ -14,7 +13,6 @@ const MyLetterBox = () => {
   const [username, setUsername] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  const cookies = new Cookies(); // 쿠키 인스턴스 생성
 
   // 주고 받은 카드 개수 조회
   const fetchCardCounts = async () => {
