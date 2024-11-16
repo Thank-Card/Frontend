@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LeftSlider from "../assets/img/LeftSlider.svg";
 import RightSlider from "../assets/img/RightSlider.svg";
+import api from 'axios'
 import "@styles/LetterBox.scss";
 
 const ImgSlider = () => {
@@ -15,7 +16,7 @@ const ImgSlider = () => {
   // 카드 데이터 API 호출
   const fetchCardData = async (year) => {
     try {
-      const response = await fetch(`/api/cards/year/${year}`); // 현재 연도로 API 호출
+      const response = await api.get(`/api/cards/year/${year}`); // 현재 연도로 API 호출
       const data = await response.json();
       
       if (data.success) {
