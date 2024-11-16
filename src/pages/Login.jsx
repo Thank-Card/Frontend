@@ -3,7 +3,6 @@ import axios from "@/api/axios";
 import "../styles/Login.scss";
 import Header from "../components/Header";
 import Heart1 from "../assets/img/Heart1.png";
-import { setCookie } from "@/api/Cookies";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -23,16 +22,15 @@ const Login = () => {
         }
       );
       if (response.headers.getAuthorization()) {
-        console.log("token 저장");
-        setCookie("token", `${response.headers.getAuthorization()}`, {
-          path: "/",
-          sameSite: "strict",
-        });
+        localStorage.setItem("Token", response.headers.getAuthorization());
       }
       console.log("로그인 성공:", response);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error("API 호출 에러", error.response ? error.response.data : error.message);
+      console.error(
+        "API 호출 에러",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 

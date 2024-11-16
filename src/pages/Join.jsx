@@ -3,7 +3,6 @@ import '../styles/Join.scss';
 import Header from '../components/Header';
 import api from '@/api/axios';
 import { useNavigate } from 'react-router-dom';
-import { Cookies } from 'react-cookie';
 
 const Join = () => {
   const [id, setId] = useState("");
@@ -12,7 +11,6 @@ const Join = () => {
   const [checkPassword, setCheckPassword] = useState("");
   const [isJoinDisabled, setIsJoinDisabled] = useState(true);
   const navigate = useNavigate();
-  const cookies = new Cookies(); // 쿠키 인스턴스 생성
 
   const handleIdChange = (e) => { setId(e.target.value); };
   const handleNameChange = (e) => { setName(e.target.value); };
@@ -42,22 +40,6 @@ const Join = () => {
           "Content-Type": "application/json",
         },
       });
-
-      if (response.status === 200 || response.status === 201) {
-        // 서버에서 JWT 토큰을 받는다고 가정합니다.
-        const token = response.data.token; // 서버에서 반환하는 토큰
-        if (token) {
-          // 쿠키에 토큰 저장
-          cookies.set("token", `JWT ${token}`, {
-            path: "/",
-            sameSite: "strict",
-            secure: true, // HTTPS에서만 전송되도록 설정
-            httpOnly: true // JavaScript에서 접근할 수 없도록 설정
-          });
-        }
-        alert('회원가입이 성공적으로 진행되었습니다.');
-        navigate('/login');
-      }
     } catch (error) {
       console.error("API 요청 오류:", error.response.data);
       if (error.response.data === "User already exist")

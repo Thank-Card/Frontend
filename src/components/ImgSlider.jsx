@@ -20,7 +20,7 @@ const images = [images1, images2, images3];
 const texts = [
   ["크리스마스 카드🎄", "크리스마스 카드🎄", "크리스마스 카드🎄"],
   ["연말 카드🎴", "연말 카드🎴", "연말 카드🎴"],
-  ["지금 인기있는 카드✨", "지금 인기있는 카드✨"]
+  ["지금 인기있는 카드✨", "지금 인기있는 카드✨"],
 ];
 
 const ImgSlider = ({ id }) => {
@@ -35,17 +35,25 @@ const ImgSlider = ({ id }) => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + currentImages.length) % currentImages.length);
+    setCurrentIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + currentImages.length) % currentImages.length
+    );
   };
 
   const handleImageClick = () => {
-    navigate("/CardSelect", { state: { selectedImage: currentImages[currentIndex] } });
+    navigate("/CardSelect", {
+      state: {
+        selectedImage: currentImages[currentIndex],
+        CardText: currentTexts[currentIndex], // 현재 이미지에 해당하는 텍스트 전달
+      },
+    });
   };
 
   const handleImageSetChange = (index) => {
     setCurrentIndex(0);
     setCurrentImages(images[index]);
-    setCurrentTexts(texts[index]); 
+    setCurrentTexts(texts[index]);
   };
 
   return (
@@ -54,15 +62,14 @@ const ImgSlider = ({ id }) => {
         <button onClick={prevSlide} className="SliderBtn">
           <img src={LeftSlider} alt="Previous Slide" />
         </button>
-        <div className="CardViewBox">
-            <div className="CardTitle">{currentTexts[currentIndex]}</div> 
-            <img
-                src={currentImages[currentIndex]}
-                alt={`Slide ${currentIndex + 1}`}
-                onClick={handleImageClick}
-                style={{ cursor: "pointer" }}
-                className="CardImg"
-            />
+        <div>
+          <div className="CardTitle">{currentTexts[currentIndex]}</div>
+          <img
+            src={currentImages[currentIndex]}
+            alt={`Slide ${currentIndex + 1}`}
+            onClick={handleImageClick}
+            style={{ cursor: "pointer" }}
+          />
         </div>
         <button onClick={nextSlide} className="SliderBtn">
           <img src={RightSlider} alt="Next Slide" />
@@ -71,8 +78,10 @@ const ImgSlider = ({ id }) => {
 
       <div className="ImageSetSelector">
         {images.map((_, index) => (
-          <button key={index} onClick={() => handleImageSetChange(index)}>
-          </button>
+          <button
+            key={index}
+            onClick={() => handleImageSetChange(index)}
+          ></button>
         ))}
       </div>
     </div>

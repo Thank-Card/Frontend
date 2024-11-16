@@ -27,10 +27,21 @@
   font-weight: 400;
   color: #000;
   text-align: center;
-  margin-bottom: 1rem; /* 요소 간격 조정 */
+  margin-bottom: 30px; /* 요소 간격 조정 */
   // background-color: #bbe3c7; /* 초록색 배경 */
   // padding: 0.2rem 0.5rem; /* 텍스트 주변에 여백 추가 */
   // border-radius: 0.3rem; /* 하이라이트 모서리를 둥글게 */
+
+  .label {
+    font-family: "GowunBatang-Regular";
+    font-weight: bold;
+    color: #3b5e36;
+    font-size: 16px;
+    padding: 2px 5px;
+    background-color: rgba(59, 94, 54, 0.1); // 연한 초록색 배경
+    border-radius: 5px;
+    font-style: italic;
+  }
 }
 
 .CardContainer {
