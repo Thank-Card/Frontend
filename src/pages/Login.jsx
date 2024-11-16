@@ -26,6 +26,7 @@ const Login = () => {
       }
       console.log("로그인 성공:", response);
       navigate("/");
+      window.location.reload(); // 페이지 강제 새로고침
     } catch (error) {
       console.error(
         "API 호출 에러",

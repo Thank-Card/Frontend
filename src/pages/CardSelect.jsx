@@ -13,8 +13,9 @@ const CardSelect = () => {
     <>
       <Header />
       <div className={styles.Select}>
-        <div className={styles.CardText}>{selectedText || "선택된 카드"}</div>{" "}
-        {/* 텍스트 표시 */}
+        <div className={styles.CardText}>
+          <span className={styles.label}>{selectedText || "선택된 카드"}</span>
+        </div>
         {selectedImage ? (
           <img
             src={selectedImage}
