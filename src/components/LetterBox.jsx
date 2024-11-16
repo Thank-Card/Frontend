@@ -52,6 +52,7 @@ const ImgSlider = () => {
     const texts = cardDataByYear[year]?.map(card => `보낸 사람: ${card.sendUser}, 받은 사람: ${card.recvUser}`) || [];
     setCurrentImages(images);
     setCurrentTexts(texts);
+    navigate(`/cardselectreview/${year}`);
   };
 
   return (

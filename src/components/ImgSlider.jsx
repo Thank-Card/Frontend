@@ -51,19 +51,20 @@ const ImgSlider = ({ id }) => {
   return (
     <div className="Img_Container">
       <div className="Slider_box">
-        <button onClick={prevSlide}>
+        <button onClick={prevSlide} className="SliderBtn">
           <img src={LeftSlider} alt="Previous Slide" />
         </button>
-        <div>
-          <div className="CardTitle">{currentTexts[currentIndex]}</div> 
-          <img
-            src={currentImages[currentIndex]}
-            alt={`Slide ${currentIndex + 1}`}
-            onClick={handleImageClick}
-            style={{ cursor: "pointer" }}
-          />
+        <div className="CardViewBox">
+            <div className="CardTitle">{currentTexts[currentIndex]}</div> 
+            <img
+                src={currentImages[currentIndex]}
+                alt={`Slide ${currentIndex + 1}`}
+                onClick={handleImageClick}
+                style={{ cursor: "pointer" }}
+                className="CardImg"
+            />
         </div>
-        <button onClick={nextSlide}>
+        <button onClick={nextSlide} className="SliderBtn">
           <img src={RightSlider} alt="Next Slide" />
         </button>
       </div>

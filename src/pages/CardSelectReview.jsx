@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "@components/Button";
-import styles from "../styles/CardSelect.module.scss";
+import styles from "../styles/CardSelectReview.scss";
 
 const CardSelectReview = () => {
   const location = useLocation();
