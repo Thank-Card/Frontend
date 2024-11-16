@@ -57,17 +57,18 @@ const ImgSlider = ({ id }) => {
   };
 
   return (
-    <div className="Img_Container">
+    <div className="MainImg_Container">
       <div className="Slider_box">
         <button onClick={prevSlide} className="SliderBtn">
           <img src={LeftSlider} alt="Previous Slide" />
         </button>
-        <div>
-          <div className="CardTitle">{currentTexts[currentIndex]}</div>
+        <div className="CardViewBox">
+          <div className="CardTitleText">{currentTexts[currentIndex]}</div>
           <img
             src={currentImages[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
             onClick={handleImageClick}
+            className="CardImg"
             style={{ cursor: "pointer" }}
           />
         </div>
@@ -81,6 +82,7 @@ const ImgSlider = ({ id }) => {
           <button
             key={index}
             onClick={() => handleImageSetChange(index)}
+            className={currentImages === images[index] ? "active" : ""}
           ></button>
         ))}
       </div>

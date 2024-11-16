@@ -10,6 +10,7 @@ const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const handleLogin = () => {
+    console.log("handleLogin 함수가 호출되었습니다.");
     setIsLoggedIn(true);
     setUsername('사용자 이름');
   };

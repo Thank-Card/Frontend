@@ -1,70 +1,77 @@
-// .Img_Container {
-//     width: 100%;
-//     display: flex;
-//     margin-top: 5rem;
+@font-face {
+  font-family: "GowunBatang-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
-//     .Slider_box {
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         .SliderBtn {
-//             display: flex;
-//             padding: 0;
-//             align-items: center; // 수직 정렬
-//             justify-content: center; // 가로 중앙 정렬
-//             border-style: none;
-//             // margin-left: 0.5rem;
-//             // margin-right: 0.5rem;
-//             background-color: transparent;
-//             cursor: pointer;
-//             width: 2.5rem; 
-//             height: 2.5rem; 
-//         }
-//         .CardViewBox {
-//             display: flex;
-//             flex-direction: column;
-//             width: auto;
-//             .CardTitle {
-//                 margin-right: 1rem; 
-//                 font-family: "GowunBatang-Regular";
-//                 font-size: 1.6rem;
-//             } 
-//             .CardImg {
-//                 width: 50%;
-//             }
-//         }
-//     }
-//     .ImageSetSelector {
-//         display: flex;
-//     }
-// }
+.MainImg_Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column; // 세로 정렬
+  align-items: center;
+  margin-top: 5rem;
 
-
-
-
-
-.Img_Container {
+  .Slider_box {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 5rem;
-    .Slider_box {
-        display: flex;
-        .CardTitle {
-            margin-bottom: 1.3rem;
-            font-family: "GowunBatang-Regular";
-            font-size: 1.6rem;
-            
-        } 
-    }
-    
+
     .SliderBtn {
-        border-style: none;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        background-color: transparent;
-        cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-style: none;
+      background-color: transparent;
+      cursor: pointer;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin: 0 0.5rem; // 좌우 간격
     }
+
+    .CardViewBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: auto;
+
+      .CardTitleText {
+        font-family: "GowunBatang-Regular";
+        font-size: 2rem; // 글자 크기 수정
+        color: #333; // 텍스트 색상
+        text-align: center;
+        margin-bottom: 1rem; // 이미지와 간격 조정
+      }
+
+      .CardImg {
+        width: 90%;
+        max-width: 600px; // 최대 크기 제한
+      }
+    }
+  }
+
+  .ImageSetSelector {
+    display: flex;
+    margin-top: 1rem;
+
+    button {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        background-color: #888;
+      }
+
+      &.active {
+        background-color: #333;
+      }
+    }
+  }
 }
