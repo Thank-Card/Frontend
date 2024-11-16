@@ -1,0 +1,29 @@
+.Img_Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    .Slider_box {
+        display: flex;
+        flex-direction: column;
+        .CardTitle {
+            margin-bottom: 1.3rem;
+            font-family: "GowunBatang-Regular";
+            font-size: 1.6rem;
+            
+        } 
+        .SldierBox1, .SliderBox2, .SliderBox3 {
+            display: flex;
+            margin-top: 4rem;
+        }
+    }
+    
+    .Slider_box button {
+        border-style: none;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}

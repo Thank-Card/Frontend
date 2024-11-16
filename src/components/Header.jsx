@@ -33,7 +33,7 @@ const Header = () => {
             <li onClick={() => handleNavigation("/login")}>Login</li>
             <li onClick={() => handleNavigation("/Join")}>Join</li>
             <li onClick={() => handleNavigation("/UserInfo")}>User Info</li>
-            <li onClick={() => handleNavigation("/")}>My Letter Box</li>
+            <li onClick={() => handleNavigation("/letterbox")}>My Letter Box</li>
           </ul>
         </div>
       )}
