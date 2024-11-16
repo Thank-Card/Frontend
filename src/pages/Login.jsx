@@ -22,7 +22,6 @@ const Login = () => {
         }
       );
       if (response.headers.getAuthorization()) {
-        console.log("token 저장");
         localStorage.setItem("Token", response.headers.getAuthorization());
       }
       console.log("로그인 성공:", response);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@components/Header";
 import "@styles/UserInfo.scss";
-import axios from "axios"; // axios를 통해 API 호출을 관리합니다.
+import api from "@/api/axios"; // axios를 통해 API 호출을 관리합니다.
 
 const UserInfo = () => {
   const [userInfo, setUserInfo] = useState({ id: "", name: "" });
@@ -9,7 +9,7 @@ const UserInfo = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await axios.get("/api/users");
+        const response = await api.get("/api/users/user-info");
         const { loginId, name } = response.data;
         setUserInfo({ loginId, name });
       } catch (error) {
