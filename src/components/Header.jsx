@@ -44,8 +44,11 @@ const Header = () => {
                 <li onClick={() => handleNavigation("/Join")}>Join</li>
               </>
             )}
+            {/* 로그인 상태에서만 User Info 표시 */}
+            {isLoggedIn && (
+              <li onClick={() => handleNavigation("/UserInfo")}>User Info</li>
+            )}
             {/* 항상 보이는 메뉴 */}
-            <li onClick={() => handleNavigation("/UserInfo")}>User Info</li>
             <li onClick={() => handleNavigation("/letterbox")}>
               My Letter Box
             </li>
