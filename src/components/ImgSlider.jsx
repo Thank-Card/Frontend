@@ -57,13 +57,13 @@ const ImgSlider = ({ id }) => {
   };
 
   return (
-    <div className="Img_Container">
+    <div className="MainImg_Container">
       <div className="Slider_box">
-        <button onClick={prevSlide} className="SliderBtn">
+        <button onClick={prevSlide} className="SliderBtn1">
           <img src={LeftSlider} alt="Previous Slide" />
         </button>
         <div>
-          <div className="CardTitle">{currentTexts[currentIndex]}</div>
+          <div className="CardTitleText">{currentTexts[currentIndex]}</div>
           <img
             src={currentImages[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
@@ -71,7 +71,7 @@ const ImgSlider = ({ id }) => {
             style={{ cursor: "pointer" }}
           />
         </div>
-        <button onClick={nextSlide} className="SliderBtn">
+        <button onClick={nextSlide} className="SliderBtn2">
           <img src={RightSlider} alt="Next Slide" />
         </button>
       </div>

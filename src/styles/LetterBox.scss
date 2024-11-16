@@ -4,21 +4,24 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
-    .Slider_box {
+    .Slider_boxs {
         display: flex;
         flex-direction: column;
-        .CardTitle {
-            margin-bottom: 1.3rem;
-            font-family: "GowunBatang-Regular";
-            font-size: 1.6rem;
-        } 
-        .SldierBox1, .SliderBox2, .SliderBox3 {
+        .SliderBox1 {
             display: flex;
-            margin-top: 4rem;
+            .YearCardBox {
+                display: flex;
+                .CardTitle {
+                    margin-bottom: 1.3rem;
+                    font-family: "GowunBatang-Regular";
+                    font-size: 1.6rem;
+                } 
+            }
         }
+        
     }
     
-    .Slider_box button {
+    .Slider_boxs button {
         border-style: none;
         margin-left: 1rem;
         margin-right: 1rem;

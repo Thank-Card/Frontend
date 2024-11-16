@@ -46,6 +46,7 @@ const ImgSlider = () => {
   };
 
   const handleImageClick = (year) => {
+    console.log("Navigating to:", year);
     setCurrentYear(year); // 클릭한 이미지의 연도로 상태 업데이트
     setCurrentIndex(0); // 슬라이드 초기화
     const images = cardDataByYear[year]?.map(card => card.cardImageUrl) || [];
@@ -57,51 +58,20 @@ const ImgSlider = () => {
 
   return (
     <div className="Img_Container">
-      <div className="CardTitle">{currentTexts[currentIndex]}</div>
-      <div className="Slider_box">
+      
+      <div className="Slider_boxs">
         <div className="SliderBox1">
             <button onClick={prevSlide}>
-            <img src={LeftSlider} alt="Previous Slide" />
+                <img src={LeftSlider} alt="Previous Slide" />
             </button>
-            <div>
-            <img
+            <div className="YearCardBox">
+                <div className="CardTitle">{currentTexts[currentIndex]}</div>
+                <img
                 src="/path/to/2024-image.jpg" // 2024년 카드 이미지
                 alt="2024년 카드"
                 onClick={() => handleImageClick(2024)}
                 style={{ cursor: "pointer", margin: '0 10px' }}
-            />
-            </div>
-            <button onClick={nextSlide}>
-            <img src={RightSlider} alt="Next Slide" />
-            </button>
-        </div>
-        <div className="SliderBox2">
-            <button onClick={prevSlide}>
-            <img src={LeftSlider} alt="Previous Slide" />
-            </button>
-            <div>
-            <img
-                src="/path/to/2023-image.jpg" // 2023년 카드 이미지
-                alt="2023년 카드"
-                onClick={() => handleImageClick(2023)}
-                style={{ cursor: "pointer", margin: '0 10px' }}
-            />
-            </div>
-            <button onClick={nextSlide}>
-            <img src={RightSlider} alt="Next Slide" />
-            </button>
-        </div>
-        <div className="SliderBox3">
-            <button onClick={prevSlide}>
-            <img src={LeftSlider} alt="Previous Slide" />
-            </button>
-            <div>
-            <img
-                src="/path/to/2022-image.jpg" // 2022년 카드 이미지
-                alt="2022년 카드"
-                onClick={() => handleImageClick(2024)}
-                style={{ cursor: "pointer", margin: '0 10px' }}
-            />
+                />
             </div>
             <button onClick={nextSlide}>
             <img src={RightSlider} alt="Next Slide" />
