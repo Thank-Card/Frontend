@@ -22,12 +22,19 @@ const Login = () => {
         }
       );
       if (response.headers.getAuthorization()) {
+<<<<<<< HEAD
+=======
+        console.log("token 저장: ", response.headers.getAuthorization());
+>>>>>>> 120e52668131095745f6911cad08ec1a1f8ca769
         localStorage.setItem("Token", response.headers.getAuthorization());
       }
       console.log("로그인 성공:", response);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error("API 호출 에러", error.response ? error.response.data : error.message);
+      console.error(
+        "API 호출 에러",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Header from "@components/Header";
 import "@styles/UserInfo.scss";
+<<<<<<< HEAD
 import api from "@/api/axios"; // axios를 통해 API 호출을 관리합니다.
+=======
+import api from "@/api/axios";
+>>>>>>> 120e52668131095745f6911cad08ec1a1f8ca769
 
 const UserInfo = () => {
-  const [userInfo, setUserInfo] = useState({ id: "", name: "" });
+  const [userInfo, setUserInfo] = useState({ loginId: "", name: "" });
 
   useEffect(() => {
     const fetchUserInfo = async () => {
