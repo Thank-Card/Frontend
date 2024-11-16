@@ -83,7 +83,7 @@ const SelectImage = () => {
   const disableInput = () => {
     const parentDiv = document.getElementById("SelectImage").parentElement;
     //console.log(parentDiv.id);
-    if (parentDiv.id === "Review") {
+    if (parentDiv.id === ("Review" || "cardReviewFromLink")) {
       const inputs = document.getElementById("nickname");
       inputs.setAttribute("disabled", true);
     }
