@@ -10,7 +10,7 @@ import UserInfo from "./pages/UserInfo";
 import CardSelect from "./pages/CardSelect";
 import MyLetterBox from "./pages/MyLetterBox";
 import CardSelectReview from "./pages/CardSelectReview";
-// import CardReviewFromLink from "./pages/CardReivewFromLink";
+import CardReviewFromLink from "./pages/CardReivewFromLink";
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
       <Route path="/cardselect" element={<CardSelect />} />
       <Route path="/letterbox" element={<MyLetterBox/>}/>
       <Route path="/cardselectreview/:year" element={<CardSelectReview/>}/>
-      {/* <Route path="/cardreviewLink" element={<CardReviewFromLink />} /> */}
+      <Route path="/card/:id" element={<CardReviewFromLink />} />
     </Routes>
   );
 };
