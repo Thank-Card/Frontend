@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import api from "@/api/axios";
+import api, { getToken } from "@/api/axios";
 import Header from "@components/Header";
 import LetterPaper from "@components/LetterPaper";
 import PersonalInfo from "@components/PersonalInfo";
@@ -21,9 +21,7 @@ const Review = () => {
   const dear = useSelector((state) => state.recvUser);
 
   useEffect(() => {
-    const token = localStorage.getItem("jwtToken");
-    // console.log(localStorage);
-    if (!token) {
+    if (!getToken()) {
       navigate("/login"); // 토큰이 없으면 로그인 페이지로 리다이렉트
     }
   }, [navigate]);
