@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "@components/Button";
-import styles from "../styles/CardSelectReview.scss";
+import api from '@/api/axios';
+import styles from "../styles/CardSelect.module.scss"; // 파일 이름 확인
 
 const CardSelectReview = () => {
   const location = useLocation();
   const selectedImage = location.state?.selectedImage; // 전달받은 이미지
+  const cardId = location.state?.cardId; // 전달받은 카드 ID
+  const [cardData, setCardData] = useState(null); // 카드 데이터를 저장할 상태
+
+  useEffect(() => {
+    const fetchCardData = async () => {
+      try {
+        const response = await api.get(`/api/cards/${cardId}/simple`);
+        if (response.data.success) {
+          setCardData(response.data.data); // 카드 데이터 설정
+        } else {
+          console.error("카드 조회 실패:", response.data.message);
+        }
+      } catch (error) {
+        console.error("API 호출 에러:", error);
+      }
+    };
+
+    if (cardId) {
+      fetchCardData();
+    }
+  }, [cardId]); // cardId가 변경될 때마다 호출
 
   return (
     <>
@@ -22,6 +44,19 @@ const CardSelectReview = () => {
         ) : (
           <p>선택된 카드가 없습니다.</p>
         )}
+        
+        {/* 카드 데이터 출력 */}
+        {cardData ? (
+          <div className={styles.CardDetails}>
+            <p>보낸 사람: {cardData.sendUser}</p>
+            <p>받는 사람: {cardData.recvUser}</p>
+            <p>카드 생성일: {new Date(cardData.createdAt).toLocaleString()}</p>
+            <img src={cardData.cardImageUrl} alt="카드 이미지" />
+          </div>
+        ) : (
+          <p>카드 정보를 가져오는 중...</p>
+        )}
+
         <div className={styles.SelectButton}>
           <Button text="카드 읽기" nav={"write"} />
         </div>
