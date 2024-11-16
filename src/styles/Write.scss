@@ -39,13 +39,27 @@ button:focus {
   margin-top: 3.9rem;
 }
 
-#Link{
+#Link {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   overflow-x: scroll;
 }
 
-#Link::-webkit-scrollbar{
+#Link::-webkit-scrollbar {
   display: none;
+}
+
+#cardReviewFromLink {
+  display: flex;
+  flex-direction: column;
+  width: 32.8rem;
+  margin-top: 0rem !important;
+  margin-bottom: 11.7rem !important;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  #image {
+    display: none;
+  }
 }
